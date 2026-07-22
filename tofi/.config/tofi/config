@@ -1,0 +1,23 @@
+anchor = top
+width = 1905
+height = 30
+margin-top = 5
+border-width = 0
+outline-width = 0
+corner-radius = 8
+
+background-color = #000000
+text-color = #ffffff
+
+font = "JetBrains Mono"
+font-size = 8 
+prompt-text = " run: "
+prompt-color = #7db5ec
+
+orientation = horizontal
+horizontal-spacing = 25
+padding-top = 2 
+padding-left = 15
+result-spacing = 20
+min-input-width = 120
+
