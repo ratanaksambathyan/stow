@@ -1,22 +1,27 @@
 # Defaults
 set $mod Mod4
-set $menu wofi --show drun
-set $term foot
+set $menu tofi-drun --drun-launch=true
+set $term foot fish
 
 # Autostart
-exec_always pkill waybar; waybar
 exec_always awww-daemon
+exec_always mako
 
 # System
 bindsym $mod+q kill
 bindsym $mod+r reload
 bindsym $mod+d exec $menu
+bindsym $mod+Shift+m exec swaymsg exit
 
 # Audio
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# Brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # Windows
 bindsym $mod+h focus left
@@ -71,9 +76,13 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym Print exec grimshot --notify savecopy area
 
 # Programs
-bindsym $mod+grave exec foot
+bindsym $mod+grave exec $term
 
 # Looks
-gaps inner 8
-gaps outer 4
+gaps inner 2
+gaps outer 8
 default_border pixel 2
+bar {
+ swaybar_command waybar
+}
+client.focused #888888 #888888 #ffffff #888888 #888888
